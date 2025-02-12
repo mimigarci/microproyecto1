@@ -2,6 +2,7 @@ const ROWS = 2;
 const COLS = 2;
 const grid = document.querySelector('#grid');
 var sequence = []
+var userSequence = []
 var score = 0
 var win = false
 
@@ -18,14 +19,11 @@ function prepareGrid() {
   
 prepareGrid()
 
-const cells = document.querySelectorAll('.game__cell')
-
-/*
-const green = grid[0]
-const red = grid[1]
-const yellow = grid[2]
-const blue = grid[3]
-*/
+const cells = document.querySelectorAll('#grid .game__cell');
+const green = cells[0];
+const red = cells[1];
+const yellow = cells[2];
+const blue = cells[3];
 
 // Generar un número al azar
 function getRandomNumber(min, max) {
@@ -40,7 +38,7 @@ function addColor(){
 }
 
 // Testeo del click en la celda referente al color verde
-cells.item(0)('click', () => {
+green.addEventListener('click', () => {
     console.log('slay')
     }
 )
@@ -82,7 +80,11 @@ function nextLevel(){
 
 // Funcion para validar secuencia introducida por el usuario
 function validSequence(){
+    
+    if (userSequence.length != sequence.length){
 
+
+    }
 
 }
 
