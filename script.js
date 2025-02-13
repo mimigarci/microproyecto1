@@ -6,6 +6,8 @@ var sequence = []
 var userSequence = []
 var score = 0
 var win = false
+var isPlaying = false
+var isSequence = false
 const cells = [];
 
 
@@ -37,104 +39,175 @@ function getRandomNumber(min, max) {
 // Agregar un color a la secuencia actual
 function addColor(){
     target = getRandomNumber(0, 3)
-    sequence.push(target)
+    console.log(cells[target])
+    sequence.push(cells[target])
     return target
 }
 
 // Testeo del click en la celda referente al color verde
 green.addEventListener('click', () => {
-    green.className = "game__cell--green_active"
-    console.log('slay')
-    setTimeout(() => {
-        green.className = "game__cell--green"
-    }, 450)
+    if (isPlaying && !isSequence) {
+        green.className = "game__cell--green_active"
+        console.log('slay')
+        setTimeout(() => {
+            green.className = "game__cell--green"
+        }, 200)
+        userSequence.push(green)
+        if (!validSequence()){
+            fisnishGame()
+        }
     }
+}
 )
 
 blue.addEventListener('click', () => {
-    blue.className = "game__cell--blue_active"
-    console.log('slay')
-    setTimeout(() => {
-        blue.className = "game__cell--blue"
-    }, 450)
+    if (isPlaying && !isSequence){
+        blue.className = "game__cell--blue_active"
+        console.log('slay')
+        setTimeout(() => {
+            blue.className = "game__cell--blue"
+        }, 200)
+        userSequence.push(blue)
+        if (!validSequence()){
+            fisnishGame()
+        }
+    }
     }
 )
 
 red.addEventListener('click', () => {
-    red.className = "game__cell--red_active"
-    console.log('slay')
-    setTimeout(() => {
-        red.className = "game__cell--red"
-    }, 450)
+    if (isPlaying && !isSequence){
+        red.className = "game__cell--red_active"
+        console.log('slay')
+        setTimeout(() => {
+            red.className = "game__cell--red"
+        }, 200)
+        userSequence.push(red)
+        if (!validSequence()){
+            fisnishGame()
+        }
+    }   
     }
 )
 
 yellow.addEventListener('click', () => {
-    yellow.className = "game__cell--yellow_active"
-    console.log('slay')
-    setTimeout(() => {
-        yellow.className = "game__cell--yellow"
-    }, 450)
+    if (isPlaying && !isSequence){
+        yellow.className = "game__cell--yellow_active"
+        console.log('slay')
+        setTimeout(() => {
+            yellow.className = "game__cell--yellow"
+        }, 200)
+        userSequence.push(yellow)
+        if (!validSequence()){
+            fisnishGame()
+        }
+    }
     }
 )
-// Función para mostrar la secuencia actual
-function showSequence(){
 
-    for (let i = 0; i < sequence.length; i++) {
+function lightUpSequence (i){
+    setTimeout(()=>{
+
         if (cells[0]== sequence[i]){
+            console.log("verde")
             green.className = "game__cell--green_active"
             setTimeout( () => {
                 green.className = "game__cell--green"
             }, 450)
-        } 
-        else if (cells[1]== sequence[i]) {
+        }
+        if (cells[1]== sequence[i]) {
+            console.log("rojo")
             red.className = "game__cell--red_active"
             setTimeout( () => {
                 red.className = "game__cell--red"
             }, 450)
-        }
-        else if (cells[2]== sequence[i]) {
+        } 
+        if (cells[2]== sequence[i]) {
+            console.log("amarillo")
             yellow.className = "game__cell--yellow_active"
             setTimeout( () => {
                 yellow.className = "game__cell--yellow"
             }, 450)
         }
-        else if (cells[3]== sequence[i]) {
+        if (cells[3]== sequence[i]) {
+            console.log("azul")
             blue.className = "game__cell--blue_active"
             setTimeout( () => {
                 blue.className = "game__cell--blue"
             }, 450)
-        }
     }
+    i++;
+        
+
+    if (i < sequence.length ){
+        lightUpSequence(i)
+    } else {
+        return
+    }
+
+    }, 700)
+}
+// Función para mostrar la secuencia actual
+function showSequence(){
+    var i = 0
+    isSequence = true
+    lightUpSequence(i)
+    i = 0
+    isSequence = false
 }
 
 // Función para ingresar al siguiente nivel/aumentar dificultad de la secuencia
 function nextLevel(){
-    if (score == sequence.length){
-        addColor()
-        showSequence()
-    }
+    console.log("next level")
+    userSequence = []
+    addColor()
+    showSequence()
 }
 
 // Funcion para validar secuencia introducida por el usuario
 function validSequence(){
-    
-    if (userSequence.length != sequence.length){
-
-
+    if (userSequence.length < sequence.length) {
+        if (userSequence[userSequence.length-1] == sequence[userSequence.length-1]) {
+            return true
+        } else {
+            return false
+        }
+    } else {
+        if (userSequence[-1] == sequence[-1]){
+            score+=1
+            setTimeout(() => {}, 5000)
+            nextLevel()
+            return true
+        } else {
+            return false
+        }
     }
+
 
 }
 
 // Función para iniciar el juego
 function play(){
-    win = false
-    if (win == false){
-
-    }
+    console.log("jugando")
+    isPlaying = true
+    addColor();
+    showSequence();
 }
 
+function fisnishGame(){
+    console.log("perdiste")
+    userSequence = []
+    sequence = []
+    isPlaying = false
+    isSequence = false
 
+}
 
+document.querySelector('#play__button').addEventListener('click', () => {
+    if (!isPlaying){
+        play()
+    }
+    }
+);
 
 

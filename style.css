@@ -45,7 +45,7 @@ font-size: 32px;
   }
 
 .game__cell--green_active{
-    background-color: green;
+    background-color: rgb(0, 255, 0);
     border-top-left-radius: 9999px;
 }
 
