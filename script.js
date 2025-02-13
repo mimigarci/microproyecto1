@@ -105,6 +105,21 @@ yellow.addEventListener('click', () => {
     }
 )
 
+const openRank = document.querySelector('#view__rank');
+const closeRank = document.querySelector('#rank-close');
+const rankBox = document.querySelector('#rank__box');
+const actionbutton = document.querySelector('#actionbutton');
+
+openRank.addEventListener('click', () => {
+    rankBox.classList.add('open');
+    }
+)
+
+closeRank.addEventListener('click', () => {
+    rankBox.classList.remove('open');
+    }
+)
+
 function lightUpSequence (i){
     setTimeout(()=>{
 
