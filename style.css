@@ -21,8 +21,16 @@
 .header__scores {
     display: flex;
     justify-content: center;
-    gap: 100px;
+    gap: 80px;
 }
+
+.scores {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
 .game__container {
     position: relative;
     display: flex;

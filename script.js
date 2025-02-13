@@ -175,6 +175,11 @@ function nextLevel(){
     showSequence()
 }
 
+function updateScore(score) {
+    const element = document.querySelector("#current__score")
+    element.textContent = score
+}
+
 // Funcion para validar secuencia introducida por el usuario
 function validSequence(){
     if (userSequence.length < sequence.length) {
@@ -186,6 +191,7 @@ function validSequence(){
     } else {
         if (userSequence[userSequence.length-1] == sequence[userSequence.length-1]){
             score+=1
+            updateScore(score)
             setTimeout(() => {}, 5000)
             nextLevel()
             return true
@@ -213,6 +219,7 @@ function gameLost(){
 function fisnishGame(){
     console.log("perdiste")
     score = 0
+    updateScore(score)
     userSequence = []
     sequence = []
     isPlaying = false
