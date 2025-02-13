@@ -47,7 +47,7 @@ green.addEventListener('click', () => {
     console.log('slay')
     setTimeout(() => {
         green.className = "game__cell--green"
-    }, 1500)
+    }, 450)
     }
 )
 
@@ -56,7 +56,7 @@ blue.addEventListener('click', () => {
     console.log('slay')
     setTimeout(() => {
         blue.className = "game__cell--blue"
-    }, 1500)
+    }, 450)
     }
 )
 
@@ -65,7 +65,7 @@ red.addEventListener('click', () => {
     console.log('slay')
     setTimeout(() => {
         red.className = "game__cell--red"
-    }, 1500)
+    }, 450)
     }
 )
 
@@ -74,7 +74,7 @@ yellow.addEventListener('click', () => {
     console.log('slay')
     setTimeout(() => {
         yellow.className = "game__cell--yellow"
-    }, 1500)
+    }, 450)
     }
 )
 // Función para mostrar la secuencia actual
@@ -85,25 +85,25 @@ function showSequence(){
             green.className = "game__cell--green_active"
             setTimeout( () => {
                 green.className = "game__cell--green"
-            }, 1500)
+            }, 450)
         } 
         else if (cells[1]== sequence[i]) {
             red.className = "game__cell--red_active"
             setTimeout( () => {
                 red.className = "game__cell--red"
-            }, 1500)
+            }, 450)
         }
         else if (cells[2]== sequence[i]) {
             yellow.className = "game__cell--yellow_active"
             setTimeout( () => {
                 yellow.className = "game__cell--yellow"
-            }, 1500)
+            }, 450)
         }
         else if (cells[3]== sequence[i]) {
             blue.className = "game__cell--blue_active"
             setTimeout( () => {
                 blue.className = "game__cell--blue"
-            }, 1500)
+            }, 450)
         }
     }
 }
