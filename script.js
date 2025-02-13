@@ -1,10 +1,12 @@
 const ROWS = 2;
 const COLS = 2;
 const grid = document.querySelector('#grid');
+const styles = ["game__cell--green", "game__cell--red", "game__cell--yellow", "game__cell--blue"]
 var sequence = []
 var userSequence = []
 var score = 0
 var win = false
+const cells = [];
 
 
 // Función para preparar la tabla
@@ -12,18 +14,20 @@ function prepareGrid() {
   
     for (let i = 0; i < ROWS * COLS; i++) {
       const cell = document.createElement('div');
-      cell.classList.add('game__cell');
+      cell.classList.add(styles[i]);
+      cells.push(cell);
       grid.appendChild(cell);
     }
 }
   
 prepareGrid()
 
-const cells = document.querySelectorAll('#grid .game__cell');
 const green = cells[0];
 const red = cells[1];
 const yellow = cells[2];
 const blue = cells[3];
+
+console.log(cells)
 
 // Generar un número al azar
 function getRandomNumber(min, max) {
@@ -39,32 +43,66 @@ function addColor(){
 
 // Testeo del click en la celda referente al color verde
 green.addEventListener('click', () => {
+    green.className = "game__cell--green_active"
     console.log('slay')
+    setTimeout(() => {
+        green.className = "game__cell--green"
+    }, 1500)
     }
 )
 
+blue.addEventListener('click', () => {
+    blue.className = "game__cell--blue_active"
+    console.log('slay')
+    setTimeout(() => {
+        blue.className = "game__cell--blue"
+    }, 1500)
+    }
+)
+
+red.addEventListener('click', () => {
+    red.className = "game__cell--red_active"
+    console.log('slay')
+    setTimeout(() => {
+        red.className = "game__cell--red"
+    }, 1500)
+    }
+)
+
+yellow.addEventListener('click', () => {
+    yellow.className = "game__cell--yellow_active"
+    console.log('slay')
+    setTimeout(() => {
+        yellow.className = "game__cell--yellow"
+    }, 1500)
+    }
+)
 // Función para mostrar la secuencia actual
 function showSequence(){
 
     for (let i = 0; i < sequence.length; i++) {
         if (cells[0]== sequence[i]){
+            green.className = "game__cell--green_active"
             setTimeout( () => {
-                // light up green
+                green.className = "game__cell--green"
             }, 1500)
         } 
         else if (cells[1]== sequence[i]) {
+            red.className = "game__cell--red_active"
             setTimeout( () => {
-                // light up red
+                red.className = "game__cell--red"
             }, 1500)
         }
         else if (cells[2]== sequence[i]) {
+            yellow.className = "game__cell--yellow_active"
             setTimeout( () => {
-                // light up yellow
+                yellow.className = "game__cell--yellow"
             }, 1500)
         }
         else if (cells[3]== sequence[i]) {
+            blue.className = "game__cell--blue_active"
             setTimeout( () => {
-                // light up blue
+                blue.className = "game__cell--blue"
             }, 1500)
         }
     }

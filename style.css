@@ -38,43 +38,43 @@ font-size: 32px;
   }
   
 
-.game__cell:first-child{
-    background-color: green;
+.game__cell--green{
+    background-color: rgb(36, 88, 36);
     border-top-left-radius: 9999px;
   }
 
-.game__cell:first-child::after{
-background-color: darkgreen;
+.game__cell--green_active{
+background-color: green;
 border-top-left-radius: 9999px;
 }
 
-.game__cell:last-child {
+.game__cell--blue {
+    background-color: rgb(23, 23, 143);
+    border-bottom-right-radius: 9999px;
+}
+
+.game__cell--blue_active {
     background-color: blue;
     border-bottom-right-radius: 9999px;
 }
 
-.game__cell:last-child::after {
-    background-color: darkblue;
-    border-bottom-right-radius: 9999px;
-}
-
-.game__cell:nth-child(2){
-    background-color: red;
-    border-top-right-radius: 9999px;
-}
-
-.game__cell:nth-child(2)::after{
+.game__cell--red{
     background-color: darkred;
     border-top-right-radius: 9999px;
 }
 
-.game__cell:nth-child(3) {
-    background-color: yellow;
+.game__cell--red_active{
+    background-color: red;
+    border-top-right-radius: 9999px;
+}
+
+.game__cell--yellow {
+    background-color: darkgoldenrod;
     border-bottom-left-radius: 9999px;
 }
 
-.game__cell:nth-child(3)::after {
-    background-color: darkgoldenrod;
+.game__cell--yellow_active {
+    background-color: yellow;
     border-bottom-left-radius: 9999px;
 }
 
