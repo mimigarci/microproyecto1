@@ -9,15 +9,20 @@
   }
   
 .header {
-display: flex;
-flex-direction: column;
-text-align: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }
 
 .header__title {
-font-size: 32px;
+    font-size: 32px;
   }
 
+.header__scores {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+}
 .game__container {
     position: relative;
     display: flex;
@@ -131,12 +136,6 @@ font-size: 32px;
 }
 
 /* Pop-up del ranking */
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 
 .view__rank{
 

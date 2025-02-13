@@ -44,17 +44,16 @@ function addColor(){
     return target
 }
 
-// Testeo del click en la celda referente al color verde
+// Botones
 green.addEventListener('click', () => {
     if (isPlaying && !isSequence) {
         green.className = "game__cell--green_active"
-        console.log('slay')
         setTimeout(() => {
             green.className = "game__cell--green"
         }, 200)
         userSequence.push(green)
         if (!validSequence()){
-            fisnishGame()
+            gameLost()
         }
     }
 }
@@ -63,13 +62,12 @@ green.addEventListener('click', () => {
 blue.addEventListener('click', () => {
     if (isPlaying && !isSequence){
         blue.className = "game__cell--blue_active"
-        console.log('slay')
         setTimeout(() => {
             blue.className = "game__cell--blue"
         }, 200)
         userSequence.push(blue)
         if (!validSequence()){
-            fisnishGame()
+            gameLost()
         }
     }
     }
@@ -78,13 +76,12 @@ blue.addEventListener('click', () => {
 red.addEventListener('click', () => {
     if (isPlaying && !isSequence){
         red.className = "game__cell--red_active"
-        console.log('slay')
         setTimeout(() => {
             red.className = "game__cell--red"
         }, 200)
         userSequence.push(red)
         if (!validSequence()){
-            fisnishGame()
+            gameLost()
         }
     }   
     }
@@ -93,13 +90,12 @@ red.addEventListener('click', () => {
 yellow.addEventListener('click', () => {
     if (isPlaying && !isSequence){
         yellow.className = "game__cell--yellow_active"
-        console.log('slay')
         setTimeout(() => {
             yellow.className = "game__cell--yellow"
         }, 200)
         userSequence.push(yellow)
         if (!validSequence()){
-            fisnishGame()
+            gameLost()
         }
     }
     }
@@ -188,7 +184,7 @@ function validSequence(){
             return false
         }
     } else {
-        if (userSequence[-1] == sequence[-1]){
+        if (userSequence[userSequence.length-1] == sequence[userSequence.length-1]){
             score+=1
             setTimeout(() => {}, 5000)
             nextLevel()
@@ -209,8 +205,14 @@ function play(){
     showSequence();
 }
 
+function gameLost(){
+    alert("Perdiste!");
+    fisnishGame()
+}
+
 function fisnishGame(){
     console.log("perdiste")
+    score = 0
     userSequence = []
     sequence = []
     isPlaying = false
@@ -225,4 +227,10 @@ document.querySelector('#play__button').addEventListener('click', () => {
     }
 );
 
-
+document.querySelector('#reset__button').addEventListener('click', () => {
+    if (isPlaying){
+        alert("Juego Reiniciado!");
+        fisnishGame()
+    }
+    }
+);
