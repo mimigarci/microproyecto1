@@ -23,11 +23,24 @@ function prepareGrid() {
 }
   
 prepareGrid()
+loadRank()
 
 const green = cells[0];
 const red = cells[1];
 const yellow = cells[2];
 const blue = cells[3];
+
+const openRank = document.querySelector('#view__rank');
+const closeRank = document.querySelector('#rank__close');
+const rankBox = document.querySelector('#rank__box');
+const rank = document.getElementById('rank');
+
+const actionbutton = document.querySelector('#actionbutton');
+
+const nameBox = document.querySelector('#name__box');
+const nameInput = document.getElementById('name__input');
+const savedName = document.querySelector('#saved__name');
+
 
 console.log(cells)
 
@@ -101,10 +114,6 @@ yellow.addEventListener('click', () => {
     }
 )
 
-const openRank = document.querySelector('#view__rank');
-const closeRank = document.querySelector('#rank-close');
-const rankBox = document.querySelector('#rank__box');
-const actionbutton = document.querySelector('#actionbutton');
 
 openRank.addEventListener('click', () => {
     rankBox.classList.add('open');
@@ -199,8 +208,6 @@ function validSequence(){
             return false
         }
     }
-
-
 }
 
 // Función para iniciar el juego
@@ -211,12 +218,7 @@ function play(){
     showSequence();
 }
 
-function gameLost(){
-    alert("Perdiste!");
-    fisnishGame()
-}
-
-function fisnishGame(){
+function finishGame(){
     console.log("perdiste")
     score = 0
     updateScore(score)
@@ -238,6 +240,75 @@ document.querySelector('#reset__button').addEventListener('click', () => {
     if (isPlaying){
         alert("Juego Reiniciado!");
         fisnishGame()
-    }
+        }
     }
 );
+
+// Local Storage
+
+savedName.addEventListener('click', () => {
+    nameBox.classList.remove('open');
+    inputName(score);
+    finishGame();
+});
+
+// Se queda pegado en el input
+function inputName(score){
+    
+    if (nameBox.classList.contains('open')) {
+        const name = nameInput.value;
+        if (name === '') {
+            alert('Por favor introduzca un nombre válido!');
+        } else {
+            //No se porque no se activa la funcion, llega al skibidi pero no muestra el fak ldeir
+            addToRank(name.value, score);
+            saveRank();
+            nameInput.value = '';
+        }
+    }
+    console.log('skibidi')
+}
+
+function addToRank(name, score){
+    console.log('fak ldier')
+    const player = document.createElement('li');
+    player.textContent = "Nombre: "+name+" Puntaje: "+score;
+    console.log("DATA: "+player.textContent)
+    rank.appendChild(player);
+}
+
+function saveRank(){
+    let ranking = []
+    rank.querySelectorAll('li').forEach(function(player){
+        ranking.push(player.textContent);
+    });
+
+    localStorage.setItem('rank', JSON.stringify(ranking));
+    alert('Nombre y puntaje guardados!');
+}
+
+function loadRank() {
+    const rankList = JSON.parse(localStorage.getItem('rank'));
+    if (rankList) {
+        rankList.forEach(function(player) {
+            const playerElement = document.createElement('li');
+            playerElement.textContent = player;
+            rank.appendChild(playerElement);
+        });
+    }
+}
+
+function gameLost(){
+    alert("Perdiste!");
+
+    win = false;
+    if (win == false){
+        nameBox.classList.add('open');
+    }
+}
+
+/*
+saveName.addEventListener('click', () => {
+    nameBox.classList.remove('open');
+});
+*/

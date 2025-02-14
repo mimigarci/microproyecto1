@@ -166,6 +166,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    border-radius: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 10px 25px;
 
     position: fixed;
     top: 0;
@@ -182,8 +185,90 @@
     transition: all 0.3s ease-in-out;
 }
 
+.rank__inner {
+    border-radius: 5px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}	
+
+.rank__close{
+    
+    padding: 12px 20px;
+    font-size: 12px;
+    font-weight: 600;
+    background-color:cadetblue;
+    border: none;
+    border-radius: 8px;
+    color:aliceblue;
+    cursor: pointer;
+    padding: 10px 20px;
+    margin-top: 180px;
+
+}
+
 .rank__box.open {
     z-index: 999;
     opacity: 1;
 }
 
+.name__box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+
+    width: 50%;
+    height: 25%;
+    background-color: rgba(255, 255, 255, 0.89);
+    z-index: -1;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.name__box.open {
+    z-index: 999;
+    opacity: 1;
+}
+
+.context {
+    font-size: 15px;
+    text-align: center;
+    color: black;
+}
+
+.saved__name{
+    padding: 12px 20px;
+    display: flex;
+    font-size: 10px;
+    font-weight: 600;
+    background-color:cadetblue;
+    border: none;
+    border-radius: 8px;
+    color:aliceblue;
+    margin-top: 10px;
+    cursor: pointer;
+    padding: 10px 20px;
+    
+}
+
+.name__input{
+    padding: 12px 20px;
+    font-size: 10px;
+    font-weight: 600;
+    border: 1px solid black;
+    border-radius: 8px;
+    color:rgb(0, 0, 0);
+    cursor: pointer;
+    padding: 10px 20px;
+    margin-top: 10px;
+}
