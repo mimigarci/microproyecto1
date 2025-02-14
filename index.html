@@ -9,10 +9,14 @@
 
 <body>
     <header class="header">
-        <h1 class="header__title"> SIMON SAYS </h1>
+        <div class="header__title-rank">
+            <h1 class="header__title"> SIMON SAYS </h1>
+            <button class = "view__rank" id="view__rank"> Ver Ranking </button>
+        </div>
+        
         <div class="header__scores">
-            <div class="scores"><h3> Highest score: </h3><div id="highest__score">0</div></div>
-            <div class="scores"><h3> Current score: </h3><div id="current__score">0</div></div>
+            <div class="scores"><h3> Puntuación más Alta: </h3><div id="highest__score">0</div></div>
+            <div class="scores"><h3> Puntuación Actual: </h3><div id="current__score">0</div></div>
 
         </div>
         
@@ -28,9 +32,6 @@
     </div>
 
     <div class = "ranking" > 
-
-        <button class = "view__rank" id="view__rank"> Ver Ranking </button>
-
         <div id = "rank__box" class="rank__box">
             <div class = "rank-inner" >
                 <h2> 
