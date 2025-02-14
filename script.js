@@ -9,7 +9,16 @@ var win = false
 var isPlaying = false
 var isSequence = false
 const cells = [];
+const openRank = document.querySelector('#view__rank');
+const closeRank = document.querySelector('#rank__close');
+const rankBox = document.querySelector('#rank__box');
+const rank = document.getElementById('rank');
 
+const actionbutton = document.querySelector('#actionbutton');
+
+const nameBox = document.querySelector('#name__box');
+const nameInput = document.getElementById('name__input');
+const savedName = document.querySelector('#saved__name');
 
 // Función para preparar la tabla
 function prepareGrid() {
@@ -30,16 +39,7 @@ const red = cells[1];
 const yellow = cells[2];
 const blue = cells[3];
 
-const openRank = document.querySelector('#view__rank');
-const closeRank = document.querySelector('#rank__close');
-const rankBox = document.querySelector('#rank__box');
-const rank = document.getElementById('rank');
 
-const actionbutton = document.querySelector('#actionbutton');
-
-const nameBox = document.querySelector('#name__box');
-const nameInput = document.getElementById('name__input');
-const savedName = document.querySelector('#saved__name');
 
 
 console.log(cells)
@@ -60,6 +60,7 @@ function addColor(){
 // Botones
 green.addEventListener('click', () => {
     if (isPlaying && !isSequence) {
+        playSound("green_sound")
         green.className = "game__cell--green_active"
         setTimeout(() => {
             green.className = "game__cell--green"
@@ -74,6 +75,7 @@ green.addEventListener('click', () => {
 
 blue.addEventListener('click', () => {
     if (isPlaying && !isSequence){
+        playSound("blue_sound")
         blue.className = "game__cell--blue_active"
         setTimeout(() => {
             blue.className = "game__cell--blue"
@@ -88,6 +90,7 @@ blue.addEventListener('click', () => {
 
 red.addEventListener('click', () => {
     if (isPlaying && !isSequence){
+        playSound("red_sound")
         red.className = "game__cell--red_active"
         setTimeout(() => {
             red.className = "game__cell--red"
@@ -102,6 +105,7 @@ red.addEventListener('click', () => {
 
 yellow.addEventListener('click', () => {
     if (isPlaying && !isSequence){
+        playSound("yellow_sound")
         yellow.className = "game__cell--yellow_active"
         setTimeout(() => {
             yellow.className = "game__cell--yellow"
@@ -129,6 +133,7 @@ function lightUpSequence (i){
     setTimeout(()=>{
 
         if (cells[0]== sequence[i]){
+            playSound("green_sound")
             console.log("verde")
             green.className = "game__cell--green_active"
             setTimeout( () => {
@@ -136,6 +141,7 @@ function lightUpSequence (i){
             }, 450)
         }
         if (cells[1]== sequence[i]) {
+            playSound("red_sound")
             console.log("rojo")
             red.className = "game__cell--red_active"
             setTimeout( () => {
@@ -143,6 +149,7 @@ function lightUpSequence (i){
             }, 450)
         } 
         if (cells[2]== sequence[i]) {
+            playSound("yellow_sound")
             console.log("amarillo")
             yellow.className = "game__cell--yellow_active"
             setTimeout( () => {
@@ -150,6 +157,7 @@ function lightUpSequence (i){
             }, 450)
         }
         if (cells[3]== sequence[i]) {
+            playSound("blue_sound")
             console.log("azul")
             blue.className = "game__cell--blue_active"
             setTimeout( () => {
@@ -179,6 +187,7 @@ function showSequence(){
 // Función para ingresar al siguiente nivel/aumentar dificultad de la secuencia
 function nextLevel(){
     console.log("next level")
+    playSound("next_level")
     userSequence = []
     addColor()
     showSequence()
@@ -211,7 +220,7 @@ function validSequence(){
 }
 
 // Función para iniciar el juego
-function play(){
+function startGame(){
     console.log("jugando")
     isPlaying = true
     addColor();
@@ -231,7 +240,7 @@ function finishGame(){
 
 document.querySelector('#play__button').addEventListener('click', () => {
     if (!isPlaying){
-        play()
+        startGame()
     }
     }
 );
@@ -239,6 +248,7 @@ document.querySelector('#play__button').addEventListener('click', () => {
 document.querySelector('#reset__button').addEventListener('click', () => {
     if (isPlaying){
         alert("Juego Reiniciado!");
+        playSound("reset_game")
         fisnishGame()
         }
     }
@@ -252,19 +262,24 @@ savedName.addEventListener('click', () => {
     finishGame();
 });
 
+function validName(name){
+    return name == ""
+}
+
 // Se queda pegado en el input
 function inputName(score){
-    
-    if (nameBox.classList.contains('open')) {
-        const name = nameInput.value;
-        if (name === '') {
-            alert('Por favor introduzca un nombre válido!');
-        } else {
-            //No se porque no se activa la funcion, llega al skibidi pero no muestra el fak ldeir
-            addToRank(name.value, score);
-            saveRank();
-            nameInput.value = '';
-        }
+    console.log("b")
+    console.log("aaaa")
+    const name = nameInput.value;
+    console.log(name)
+    if (validName(name)) {
+        alert('Por favor introduzca un nombre válido!');
+    } else {
+        //No se porque no se activa la funcion, llega al skibidi pero no muestra el fak ldeir
+        console.log("ayuda")
+        addToRank(name, score);
+        saveRank();
+        nameInput.value = '';
     }
     console.log('skibidi')
 }
@@ -299,12 +314,14 @@ function loadRank() {
 }
 
 function gameLost(){
+    playSound("game_lost")
     alert("Perdiste!");
+    nameBox.classList.add('open');
+}
 
-    win = false;
-    if (win == false){
-        nameBox.classList.add('open');
-    }
+function playSound(name){
+    var x = document.getElementById(name)
+    x.play()
 }
 
 /*
