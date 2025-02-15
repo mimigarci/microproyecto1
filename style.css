@@ -233,9 +233,8 @@
     color:aliceblue;
     cursor: pointer;
     padding: 10px 20px;
-    margin-top: 0px;
+    margin: auto;
     width: 50%;
-    
 }
 
 .rank__box.open {
