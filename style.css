@@ -290,9 +290,6 @@
         gap: 20px;
     }
 
-    .context    {
-        font-size: 10px;
-    }
 }
 
 @media only screen and (max-width: 600px) {
@@ -340,9 +337,6 @@
         padding: 10px 20px;
     }
 
-    .context {
-        font-size: 13px;
-    }
   }
   
 .name__box {
