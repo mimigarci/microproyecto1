@@ -15,6 +15,8 @@
         </div>
         
         <div class="header__scores">
+            <div class="scores"><h3> Jugador: </h3><div id="act__player__name"></div></div>
+            <div class="scores"><h3> Nivel: </h3><div id="level">0</div></div>
             <div class="scores"><h3> Puntuación más Alta: </h3><div id="highest__score">0</div></div>
             <div class="scores"><h3> Puntuación Actual: </h3><div id="current__score">0</div></div>
 
@@ -35,7 +37,16 @@
         <div id = "rank__box" class="rank__box">
             <div class = "rank__inner" >
                 <h2> 
-                    <ul id = "rank"> </ul>
+                    <table id = "rank"> 
+                        <thead> 
+                            <tr> 
+                                <th> Nombre </th>
+                                <th> Puntuación </th>
+                            </tr>
+                        </thead>
+
+                        <tbody></tbody>
+                    </table>
                 </h2>
                 <button class = "rank__close" id = "rank__close"> Cerrar </button>
             </div>
@@ -44,7 +55,6 @@
     </div>
 
     <div class = 'name__input'>
-
         <div id = "name__box" class="name__box">
             <div class = "name__box-inner" >
                 <h2 class = "context"> Ingresa tu nombre </h2>
@@ -52,8 +62,8 @@
                 <button class="saved__name" id="saved__name"> Guardar </button>
             </div>
         </div>
-
     </div>
+
     <audio src="next_level.mp3" id="next_level">
     <audio src="game_lost.mp3" id="game_lost">
     <audio src="reset_game.mp3" id="reset_game">
