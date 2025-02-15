@@ -269,6 +269,9 @@ function finishGame(){
     disableButtons()
     addToRank(playerName, score)
     saveRank()
+    score = 0
+    updateScore(score)
+    level.textContent = 1
     getHighestScore()
 }
 
