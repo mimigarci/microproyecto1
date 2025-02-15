@@ -362,7 +362,6 @@ function saveRank(){
     });
 
     localStorage.setItem('rank', JSON.stringify(ranking));
-    alert('Nombre y puntaje guardados!');
 }
 
 function loadRank() {
