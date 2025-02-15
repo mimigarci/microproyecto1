@@ -290,6 +290,10 @@
         width: 100%;
         gap: 20px;
     }
+
+    .context    {
+        font-size: 10px;
+    }
 }
 
 @media only screen and (max-width: 600px) {
@@ -335,6 +339,10 @@
     .name__input {
         font-size: 10px;
         padding: 10px 20px;
+    }
+
+    .context {
+        font-size: 13px;
     }
   }
   
