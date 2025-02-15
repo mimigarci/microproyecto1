@@ -79,7 +79,7 @@ function greenClickHandler() {
         green.className = "game__cell--green_active";
         setTimeout(() => {
             green.className = "game__cell--green";
-        }, 200);
+        }, 100);
         userSequence.push(green);
         if (!validSequence()) {
             gameLost();
@@ -93,7 +93,7 @@ function blueClickHandler() {
         blue.className = "game__cell--blue_active";
         setTimeout(() => {
             blue.className = "game__cell--blue";
-        }, 200);
+        }, 100);
         userSequence.push(blue);
         if (!validSequence()) {
             gameLost();
@@ -107,7 +107,7 @@ function redClickHandler() {
         red.className = "game__cell--red_active";
         setTimeout(() => {
             red.className = "game__cell--red";
-        }, 200);
+        }, 100);
         userSequence.push(red);
         if (!validSequence()) {
             gameLost();
@@ -121,16 +121,13 @@ function yellowClickHandler() {
         yellow.className = "game__cell--yellow_active";
         setTimeout(() => {
             yellow.className = "game__cell--yellow";
-        }, 200);
+        }, 100);
         userSequence.push(yellow);
         if (!validSequence()) {
             gameLost();
         }
     }
 }
-
-enableButtons();
-
 
 openRank.addEventListener('click', () => {
     rankBox.classList.add('open');
@@ -271,7 +268,8 @@ function finishGame(){
     saveRank()
     score = 0
     updateScore(score)
-    level.textContent = 1
+    level.textContent = 0
+    actLevel = 1
     getHighestScore()
 }
 
