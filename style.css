@@ -212,7 +212,6 @@
     font-size: 15px;
     font-style: italic;
     color: black;
-    width: 70% auto;
 }	
 
 .rank th{
@@ -224,7 +223,6 @@
 }
 
 .rank__close{
-    
     padding: 12px 20px;
     font-size: 12px;
     font-weight: 600;
