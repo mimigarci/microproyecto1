@@ -42,8 +42,8 @@ function clearLocalStorage() {
     getHighestScore(); 
 }
 
-clearLocalStorage()*/
-
+clearLocalStorage()
+*/
 prepareGrid()
 loadRank()
 getHighestScore()
