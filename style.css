@@ -189,9 +189,9 @@
     bottom: 0;
     margin: auto;
 
-    width: 50%;
+    width: 30%;
     height: 50%;
-    background-color: rgba(255, 255, 255, 0.89);
+    background-color: rgb(255, 255, 255);
     z-index: -1;
     opacity: 0;
     transition: all 0.3s ease-in-out;
@@ -202,11 +202,16 @@
     text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 6px;
     font-size: 10px;
     color: black;
-
 }	
+
+.rank th{
+    background-color: rgb(19, 94, 97);
+    font-style: italic;
+    color: white;
+}
 
 .rank__close{
     
@@ -219,7 +224,7 @@
     color:aliceblue;
     cursor: pointer;
     padding: 10px 20px;
-    margin-top: 180px;
+    margin-top: 0px;
 
 }
 
@@ -242,6 +247,39 @@
         justify-content: center;
         gap: 0;
     }
+
+    .rank__box {
+        width: 80%;
+        height: 70%;
+    }
+
+    .name__box {
+        width: 80%;
+        height: 40%;
+    }
+    
+    .rank__inner {
+        font-size: 8px;
+        gap: 4px;
+    }
+
+    .saved__name {
+        font-size: 8px;
+        padding: 8px 16px;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 20px;
+    }
+
+    .name__input {
+        font-size: 8px;
+        padding: 8px 16px;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 20px;
+    }
 }
 
 @media only screen and (max-width: 600px) {
@@ -261,6 +299,32 @@
         border-radius: 8px;
         color:aliceblue;
         cursor: pointer;
+    }
+
+    
+    .rank__box {
+        width: 60%;
+        height: 60%;
+    }
+
+    .name__box {
+        width: 60%;
+        height: 30%;
+    }
+
+    .rank__inner {
+        font-size: 9px;
+        gap: 5px;
+    }
+
+    .saved__name {
+        font-size: 10px;
+        padding: 10px 20px;
+    }
+
+    .name__input {
+        font-size: 10px;
+        padding: 10px 20px;
     }
   }
   
@@ -299,7 +363,6 @@
 
 .saved__name{
     padding: 12px 20px;
-    display: flex;
     font-size: 10px;
     font-weight: 600;
     background-color:cadetblue;
@@ -309,6 +372,9 @@
     margin-top: 10px;
     cursor: pointer;
     padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     
 }
 
@@ -322,4 +388,7 @@
     cursor: pointer;
     padding: 10px 20px;
     margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

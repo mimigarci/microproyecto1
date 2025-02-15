@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css"/>
+    <link rel="icon" href="favicon.png" type="image/png">
 </head>
 
 <body>
@@ -36,18 +37,17 @@
     <div class = "ranking" > 
         <div id = "rank__box" class="rank__box">
             <div class = "rank__inner" >
-                <h2> 
-                    <table id = "rank"> 
-                        <thead> 
-                            <tr> 
-                                <th> Nombre </th>
-                                <th> Puntuación </th>
-                            </tr>
-                        </thead>
+                <h2> Puntuaciones de todos los tiempos </h2>
+                <table id = "rank" class = "rank"> 
+                    <thead> 
+                        <tr> 
+                            <th> Nombre </th>
+                            <th> Puntuación </th>
+                        </tr>
+                    </thead>
 
-                        <tbody></tbody>
-                    </table>
-                </h2>
+                    <tbody></tbody>
+                </table>
                 <button class = "rank__close" id = "rank__close"> Cerrar </button>
             </div>
         
@@ -71,10 +71,6 @@
     <audio src="green.wav" id="green_sound">
     <audio src="yellow.wav" id="yellow_sound">
     <audio src="blue.wav" id="blue_sound">
-
-    <footer>
-        <p> Luis Asenjo y Michelle García</p>
-    </footer>
 
     <script src="script.js"></script>
 </body>

@@ -33,7 +33,17 @@ function prepareGrid() {
       grid.appendChild(cell);
     }
 }
-  
+/*
+// Testing function
+function clearLocalStorage() {
+    localStorage.clear();
+    alert('Datos borrados!');
+    tbodyElement.innerHTML = '';
+    getHighestScore(); 
+}
+
+clearLocalStorage()*/
+
 prepareGrid()
 loadRank()
 getHighestScore()
@@ -260,8 +270,6 @@ function finishGame(){
     addToRank(playerName, score)
     saveRank()
     getHighestScore()
-
-
 }
 
 document.querySelector('#play__button').addEventListener('click', () => {
@@ -293,9 +301,6 @@ document.querySelector('#reset__button').addEventListener('click', () => {
 
 savedName.addEventListener('click', () => {
     nameBox.classList.remove('open');
-    isPlaying = true
-    addColor();
-    showSequence();
 });
 
 function validName(name){
@@ -308,16 +313,18 @@ function inputName(){
     if (validName(name)) {
         alert("Debe introducir un nombre válido!");
     } else {
-        playerName = name;
-        setName(playerName);
-        console.log('skibidi');
-        nameBox.classList.remove('open');
         isPlaying = true;
-        setLevel(actLevel)
-        addColor();
-        showSequence();
+        playerName = name;
+        setName(name);
+        if (playerName != '' && playerName != null){
+            console.log('skibidi');
+            nameBox.classList.remove('open');
+            isPlaying = true;
+            setLevel(actLevel)
+            addColor();
+            showSequence();
+        }
     }
-    return name
     
 }
 
@@ -327,6 +334,7 @@ function setLevel(newLevel){
 }
 
 function setName (newName){
+    playerName = newName
     const actPlayerName = document.querySelector("#act__player__name");
     actPlayerName.textContent = newName;
 }
