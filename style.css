@@ -195,8 +195,8 @@
     bottom: 0;
     margin: auto;
 
-    width: 30%;
-    height: 50%;
+    width: 50%;
+    height: 60%;
     background-color: rgb(255, 255, 255, 0.89);
     z-index: -1;
     opacity: 0;
@@ -212,15 +212,12 @@
     font-size: 15px;
     font-style: italic;
     color: black;
-    justify-content: center;
 }	
 
 .rank th{
-    border-collapse: collapse;
     background-color: rgb(19, 94, 97);
     font-style: italic;
     color: white;
-    height: 15% auto;
 }
 
 .rank__close{
@@ -233,7 +230,7 @@
     color:aliceblue;
     cursor: pointer;
     padding: 10px 20px;
-    width: 50%;
+    margin: 0px;
 }
 
 .rank__box.open {
@@ -340,7 +337,7 @@
     }
 
     .context {
-        font-size: 13px;
+        font-size: 10px;
     }
   }
   
@@ -380,7 +377,7 @@
 }
 
 .context {
-    font-size: 20px;
+    font-size: 15px;
     font-style: bold;
     text-align: center;
     color: black;
