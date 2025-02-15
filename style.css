@@ -212,6 +212,7 @@
     font-size: 15px;
     font-style: italic;
     color: black;
+    justify-content: center;
 }	
 
 .rank th{
@@ -233,7 +234,8 @@
     cursor: pointer;
     padding: 10px 20px;
     margin-top: 0px;
-
+    width: 50%;
+    
 }
 
 .rank__box.open {
